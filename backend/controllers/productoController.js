@@ -37,7 +37,7 @@ const obtenerProductos = async (req, res) => {
   try {
     const productos = await Producto.findAll({
       where: { activo: true },
-      include: { model: Categoria },
+      include: { model: Categoria, as: 'categoria' },
     });
     res.status(200).json(productos);
   } catch (error) {
@@ -51,7 +51,7 @@ const obtenerProductoPorId = async (req, res) => {
   try {
     const { id } = req.params;
     const producto = await Producto.findByPk(id, {
-      include: { model: Categoria },
+      include: { model: Categoria, as: 'categoria' },
     });
 
     if (!producto) {
