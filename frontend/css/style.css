@@ -1,0 +1,127 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contenedor h2 {
+  margin-bottom: 1.5rem;
+  color: #1a1a2e;
+}
+
+/* Grid de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjeta de producto */
+.producto-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background-color: #ddd;
+}
+
+.producto-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.producto-info h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.producto-info .categoria {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.producto-info .precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-top: auto;
+  margin-bottom: 0.75rem;
+}
+
+.producto-info button {
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.producto-info button:hover {
+  background-color: #3651d4;
+}
+
+/* Mensaje cuando no hay productos o hay error */
+.mensaje-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+}

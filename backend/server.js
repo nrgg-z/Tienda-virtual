@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const sequelize = require('./config/database');
 require('dotenv').config();
 const Usuario = require('./models/Usuario');
@@ -18,6 +19,7 @@ sequelize.authenticate()
   .then(() => console.log('✅ Modelos sincronizados (tablas creadas si no existían)'))
   .catch((error) => console.error('❌ Error:', error));
 
+app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/categorias', categoriaRoutes);
