@@ -2,11 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
 require('dotenv').config();
-const Usuario = require('./models/Usuario');
-const { Categoria, Producto } = require('./models/index');
+const { Categoria, Producto, Usuario, Carrito } = require('./models/index');
 const authRoutes = require('./routes/authRoutes');
 const categoriaRoutes = require('./routes/categoriaRoutes');
 const productoRoutes = require('./routes/productoRoutes');
+const carritoRoutes = require('./routes/carritoRoutes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -24,6 +24,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/productos', productoRoutes);
+app.use('/api/carrito', carritoRoutes);
 
 app.get('/', (req, res) => {
   res.send('Servidor funcionando 🚀');
